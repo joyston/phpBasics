@@ -7,27 +7,32 @@
     {
         public $name;
         public $color;
+        protected $cartype;            //Access modifiers
 
-        function __construct($name)
+        function __construct($name, $cartype = "Petrol")
         {
             $this->name = $name;
+            $this->cartype = $cartype;
         }
         function __destruct()
         {
-            echo "Script has ended!";
+            echo "<br>Script has ended!";
         }
         public function Display()
         {
-            echo "{$this->name} is a {$this->color} car!";
+            echo "<br>{$this->name} is a {$this->color} car!";
+            echo "<br>This Car is of type {$this->cartype}";
         }
     }
 
-    class Hatback extends car
+    //Inheritance
+    class Hatback extends Car
     {
         public $seatingCount;
         public function DisplaySeatingCapacity()
         {
-            echo "<span>This hatchback is a {$this->seatingCount} seater";
+            echo "<br>This hatchback is a {$this->seatingCount} seater";
+            echo "<br>This Car is of type {$this->cartype}";
         }
     }
 
@@ -36,7 +41,7 @@
     $bmw->color = "Blue";
     $bmw->Display();
 
-    $kwid = new Hatback("Kwid");
+    $kwid = new Hatback("Kwid", "Electric");
     $kwid->color = "green";
     $kwid->seatingCount = 4;
     $kwid->DisplaySeatingCapacity();
