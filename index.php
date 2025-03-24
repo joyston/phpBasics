@@ -7,7 +7,8 @@
     {
         public $name;
         public $color;
-        protected $cartype;            //Access modifiers
+        protected $cartype;            //Access modifiers for properties
+        private $baseColor;
 
         function __construct($name, $cartype = "Petrol")
         {
@@ -18,8 +19,14 @@
         {
             echo "<br>Script has ended!";
         }
+        private function setBaseColor()
+        {
+            $this->baseColor = "white";
+        }
         public function Display()
         {
+            $this->setBaseColor();
+            echo "<br>Base color of any car is {$this->baseColor}!";
             echo "<br>{$this->name} is a {$this->color} car!";
             echo "<br>This Car is of type {$this->cartype}";
         }
