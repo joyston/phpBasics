@@ -53,6 +53,13 @@
     $kwid->seatingCount = 4;
     $kwid->DisplaySeatingCapacity();
 
+    //array of objects
+    $cars = array($bmw, $kwid);
+    echo "<br>The cars in our inventory:";
+    foreach ($cars as $x) {
+        echo "<br>{$x->name}";
+    }
+
     ?>
 </body>
 
