@@ -5,6 +5,7 @@
     <?php
     class Car
     {
+        const DESTRUCT_MSG = "<br>Destroying Car class!";
         public $name;
         public $color;
         protected $cartype;            //Access modifiers for properties
@@ -17,7 +18,7 @@
         }
         function __destruct()
         {
-            echo "<br>Script has ended!";
+            echo self::DESTRUCT_MSG; //constant called from inside the class
         }
         private function setBaseColor()
         {
@@ -35,6 +36,7 @@
     //Inheritance
     class Hatback extends Car
     {
+        const MSG = "Thank you for visiting Hatchback calss!"; //Constant
         public $seatingCount;
         public function DisplaySeatingCapacity()
         {
@@ -48,10 +50,12 @@
     $bmw->color = "Blue";
     $bmw->Display();
 
+
     $kwid = new Hatback("Kwid", "Electric");
     $kwid->color = "green";
     $kwid->seatingCount = 4;
     $kwid->DisplaySeatingCapacity();
+    echo Hatback::MSG;  //Accessing constant from out class
 
     //array of objects
     $cars = array($bmw, $kwid);
